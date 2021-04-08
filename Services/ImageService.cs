@@ -12,7 +12,7 @@ namespace Tagger.Services
     internal class ImageService
     {
         private ImageProperties properties;
-        private List<int> taggedImages;
+        private List<int> taggedImages = new List<int>();
 
         public async Task<TagImage> ShowRandomImage(StorageFolder imageFolder, string tag)
         {
