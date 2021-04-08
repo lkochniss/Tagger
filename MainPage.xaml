@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="Tagger.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tagger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton Grid.Column="1" Icon="SyncFolder" Click="SyncfolderClicked"></AppBarButton>
+            <AppBarButton Grid.Column="1" Icon="Tag" Click="TagClicked"></AppBarButton>
+            <CommandBar.Content>
+                <TextBlock x:Name="InfoBox" Grid.Column="1" Margin="5">Select Directory</TextBlock>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+    <Page.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="60" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button Click="NopeClicked" Background="LightGray" Grid.Column="0" Width="60">
+                <TextBlock Text="NOPE" Foreground="Black"
+                   HorizontalAlignment="Center"/>
+            </Button>
+            <GridView x:Name="Tagger" VerticalAlignment="Top" Grid.Column="1">
+                <Image x:Name="ImageDetails" />
+                <ItemsControl x:Name="Tags">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GridView>
+            <Button Click="YesClicked" Background="LightGray" Grid.Column="2" Width="60">
+                <TextBlock Text="YES" Foreground="Black"
+                   HorizontalAlignment="Center"/>
+            </Button>
+        </Grid>
+    </Page.Content>
+</Page>
